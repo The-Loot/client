@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Navbar, HomePage, SchedulePage, StandingsPage, TeamsPage } from './components';
+import { Navbar, HomePage, SchedulePage, StandingsPage, TeamsPage, Roster } from './components';
 import './App.scss';
 
 const links = {
@@ -20,6 +20,7 @@ function App() {
         <Route exact path={links.teams} component={TeamsPage} />
         <Route exact path={links.schedule} component={SchedulePage} />
         <Route exact path={links.schedule} component={StandingsPage} />
+        <Route exact to="/roster" component={Roster} />
       </Switch>
     </div>
   );

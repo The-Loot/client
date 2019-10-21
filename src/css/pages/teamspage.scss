@@ -1,0 +1,50 @@
+.team-page {
+  .team-header-text {
+    font-family: var(--font_main);
+    text-align: center;
+    margin: 20px;
+  }
+
+  .page-line {
+    width: 80%;
+    border: 2px solid var(--grey);
+    margin: 1em auto;
+  }
+
+  .team-table {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 80%;
+    height: 300px;
+    margin: 1em auto;
+    // background-color: #EEEEEE;
+    border-radius: 10px;
+  }
+
+  .team-container {
+    margin: 10px;
+    .team-name {
+      font-size: 20px;
+      font-family: var(--font_main);
+    }
+  
+    .team-info {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+
+      button {
+        font-size: 15px;
+        background: none;
+        border: none;
+        padding-right: 8px;
+        color: var(--teal);
+        cursor: pointer;
+      }
+    }
+  }
+
+  
+
+}

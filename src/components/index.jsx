@@ -4,5 +4,8 @@ export { default as TeamsPage } from './pages/TeamsPage';
 export { default as StandingsPage } from './pages/StandingsPage';
 export { default as SchedulePage } from './pages/SchedulePage';
 
+// team
+export { default as Roster } from './Team/Roster';
+
 // other
 export { default as Navbar } from './Navbar';

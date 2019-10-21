@@ -15,8 +15,8 @@ export default class Navbar extends Component {
     return (
       <div className="navbar-container">
         <NavLink className="logo-container" to={links.home}>
-          <img className="nav-logo" src="/main-logo.jpeg" alt="The Loot" />
-          <h2 className="company-name">The Loot Basketball</h2>
+          <img className="nav-logo" src="/images/main-logo.png" alt="The Loot" />
+          <p className="company-name">THE LOOT</p>
         </NavLink>
         <div className="link-container">
           <ul className="desktop-nav">
