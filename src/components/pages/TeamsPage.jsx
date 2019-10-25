@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Switch, Route, Link } from 'react-router-dom';
+// import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import Roster from '../Team/Roster';
@@ -8,9 +7,7 @@ import Roster from '../Team/Roster';
 import '../../css/pages/teamspage.scss';
 
 export default class TeamsPage extends Component {
-  static propTypes = {
-    prop: PropTypes,
-  };
+  static propTypes = {};
 
   constructor(props) {
     super(props);
@@ -57,7 +54,6 @@ export default class TeamsPage extends Component {
                 </li>
                 <li>
                   <button type="button">Schedule</button>
-                  {/* <Link players={teams.players}>Sc</Link> */}
                 </li>
                 <li>
                   <button onClick={() => this.handleRosterModal(team._id)} type="button">
@@ -69,7 +65,7 @@ export default class TeamsPage extends Component {
           ))}
         </div>
         {this.state.displayRoster ? (
-          <Roster team_id={this.state.currentTeamId} closeModal={this.handleRosterModal} />
+          <Roster teamId={this.state.currentTeamId} closeModal={this.handleRosterModal} />
         ) : (
           ''
         )}

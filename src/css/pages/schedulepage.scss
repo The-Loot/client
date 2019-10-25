@@ -1,0 +1,13 @@
+.schedule-page {
+  .schedule-header-text {
+    font-family: var(--font_main);
+    text-align: center;
+    margin: 20px;
+  }
+
+  .page-line {
+    width: 80%;
+    border: 2px solid var(--grey);
+    margin: 1em auto;
+  }
+}

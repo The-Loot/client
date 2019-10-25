@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { Table } from 'react-bootstrap';
 
 import '../../css/Team/roster.scss';
 
 export default class Roster extends Component {
   static propTypes = {
-    prop: PropTypes,
+    teamId: PropTypes.string.isRequired,
+    closeModal: PropTypes.func,
   };
 
   constructor(props) {
@@ -18,9 +20,9 @@ export default class Roster extends Component {
   }
 
   componentDidMount = () => {
-    const { team_id } = this.props;
+    const { teamId } = this.props;
     axios
-      .get(`http://localhost:5000/api/players/${team_id}`)
+      .get(`http://localhost:5000/api/players/${teamId}`)
       .then(response => {
         this.setState({
           players: response.data,
@@ -41,7 +43,7 @@ export default class Roster extends Component {
         </div>
         <h3 className="roster-title">Roster</h3>
         <hr className="roster-line" />
-        <table id="table" className="table table-hover">
+        <Table responsive striped bordered>
           <thead>
             <tr>
               <th>Name</th>
@@ -64,7 +66,7 @@ export default class Roster extends Component {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }
