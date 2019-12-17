@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { Table } from 'react-bootstrap';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+// import { Table } from 'react-bootstrap';
 
 import '../../css/Team/roster.scss';
 
+const useStyles = makeStyles({
+  root: {
+    width: '100%',
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 650,
+  },
+});
 export default class Roster extends Component {
   static propTypes = {
     teamId: PropTypes.string.isRequired,
@@ -22,7 +38,7 @@ export default class Roster extends Component {
   componentDidMount = () => {
     const { teamId } = this.props;
     axios
-      .get(`http://localhost:5000/api/players/${teamId}`)
+      .get(`http://localhost:5000/api/players/team/${teamId}`)
       .then(response => {
         this.setState({
           players: response.data,
@@ -43,7 +59,35 @@ export default class Roster extends Component {
         </div>
         <h3 className="roster-title">Roster</h3>
         <hr className="roster-line" />
-        <Table responsive striped bordered>
+        <Paper className={useStyles.root}>
+          <Table className={useStyles.table} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell align="right">Points</TableCell>
+                <TableCell align="right">Rebounds&nbsp;(g)</TableCell>
+                <TableCell align="right">Assists&nbsp;(g)</TableCell>
+                <TableCell align="right">Steals&nbsp;(g)</TableCell>
+                <TableCell align="right">Blocks&nbsp;(g)</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {Object.values(players).map(player => (
+                <TableRow key={player.name}>
+                  <TableCell component="th" scope="row">
+                    {player.name}
+                  </TableCell>
+                  <TableCell align="right">{player.stats.points}</TableCell>
+                  <TableCell align="right">{player.stats.rebounds}</TableCell>
+                  <TableCell align="right">{player.stats.assists}</TableCell>
+                  <TableCell align="right">{player.stats.steals}</TableCell>
+                  <TableCell align="right">{player.stats.blocks}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Paper>
+        {/* <Table responsive striped bordered>
           <thead>
             <tr>
               <th>Name</th>
@@ -66,7 +110,7 @@ export default class Roster extends Component {
               </tr>
             ))}
           </tbody>
-        </Table>
+        </Table> */}
       </div>
     );
   }

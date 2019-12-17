@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
-import { Navbar, HomePage, SchedulePage, StandingsPage, TeamsPage, Roster } from './components';
+import { Navbar, HomePage, SchedulePage, StandingsPage, TeamsPage, Roster, AdminLoginPage } from './components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
@@ -11,6 +11,7 @@ const links = {
   standings: '/standings',
   schedule: '/schedule',
   roster: '/roster',
+  admin: '/admin',
 };
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route exact path={links.schedule} component={SchedulePage} />
         <Route exact path={links.standings} component={StandingsPage} />
         <Route exact path={links.roster} component={Roster} />
+        <Route exact path={links.admin} component={AdminLoginPage} />
       </Switch>
     </div>
   );
